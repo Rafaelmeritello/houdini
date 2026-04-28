@@ -89,7 +89,7 @@ class Houdini:
         self.puck = (0, 0)
 
     async def start(self):
-
+        # Forçando configurações
         self.config.database_address = "ngpsr1uy93mx5np6rjpfbin6"
         self.config.database_username = "houdini"
         self.config.database_password = "houdini"
@@ -137,21 +137,14 @@ class Houdini:
             self.client_connected, self.config.address,
             self.config.port
         )
-self.config.database_address = "ngpsr1uy93mx5np6rjpfbin6"
-    self.config.database_username = "houdini"
-    self.config.database_password = "houdini"
-    self.config.database_name = "postgres"
-    
-    # Se quiser garantir o Redis também:
-    self.config.redis_address = "redis-database-tuuiatipo9aubml6hygfi9Ox"
-    self.config.redis_port = 6379
-        # Adicione esta linha logo acima do await self.db.set_bind
-        print(f"DEBUG: Tentando conectar em postgresql://{self.config.database_username}:****@{self.config.database_address}/{self.config.database_name}")
+
+        print(f"DEBUG: Conectando em postgresql://{self.config.database_username}@ iconography{self.config.database_address}")
 
         await self.db.set_bind('postgresql+asyncpg://{}:{}@{}/{}'.format(
             self.config.database_username, self.config.database_password,
             self.config.database_address,
             self.config.database_name))
+
         self.logger.info('Booting Houdini')
         pool = aioredis.ConnectionPool.from_url(f'redis://{self.config.redis_address}:{self.config.redis_port}')
         self.redis = aioredis.Redis(connection_pool=pool)
