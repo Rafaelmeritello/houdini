@@ -127,7 +127,7 @@ class Houdini:
             self.config.port
         )
 
-      await self.db.set_bind('postgresql+asyncpg://{}:{}@{}/{}'.format(
+        await self.db.set_bind('postgresql+asyncpg://{}:{}@{}/{}'.format(
             self.config.database_username, self.config.database_password,
             self.config.database_address,
             self.config.database_name))
