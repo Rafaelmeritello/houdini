@@ -89,21 +89,22 @@ class Houdini:
         self.puck = (0, 0)
 
     async def start(self):
+async def start(self):
         # --- Sobrescrevendo Database ---
         self.config.database_address = "ngpsr1uy93mx5np6rjpfbin6"
         self.config.database_username = "houdini"
         self.config.database_password = "houdini"
         self.config.database_name = "postgres"
-    
+
         # --- Sobrescrevendo Redis ---
         self.config.redis_address = "redis-database-tuuiatipo9aubml6hygfi9Ox"
         self.config.redis_port = 6379
-    
-        # --- Sobrescrevendo Configurações do Servidor ---
-        # Nota: Verifique se os nomes dos atributos são esses mesmos (pode ser world_port ou world_id)
+
+        # --- Sobrescrevendo Configuracoes do Servidor ---
         self.config.login_port = 6112
         self.config.world_port = 9875
         self.config.server_name = "Meu CP"
+
         general_log_file = self.config.logging_general_path if self.config.logging_general_path \
             else f'logs/{self.config.name.lower()}.log'
         errors_log_file = self.config.logging_error_path if self.config.logging_error_path \
