@@ -1,10 +1,11 @@
 asyncio
 redis
 cacheout
-gino
 ujson
 defusedxml
 bcrypt
 uvloop; sys_platform != 'win32'
 pytz
 asyncpg
+SQLAlchemy==1.4.31
+gino==1.0.1
