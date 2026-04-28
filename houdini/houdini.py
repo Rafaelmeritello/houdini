@@ -127,11 +127,13 @@ class Houdini:
             self.config.port
         )
 
-        await self.db.set_bind('postgresql://{}:{}@{}/{}'.format(
+        # Adicione esta linha logo acima do await self.db.set_bind
+        print(f"DEBUG: Tentando conectar em postgresql://{self.config.database_username}:****@{self.config.database_address}/{self.config.database_name}")
+
+        await self.db.set_bind('postgresql+asyncpg://{}:{}@{}/{}'.format(
             self.config.database_username, self.config.database_password,
             self.config.database_address,
             self.config.database_name))
-
         self.logger.info('Booting Houdini')
         pool = aioredis.ConnectionPool.from_url(f'redis://{self.config.redis_address}:{self.config.redis_port}')
         self.redis = aioredis.Redis(connection_pool=pool)
