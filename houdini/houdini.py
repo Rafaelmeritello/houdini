@@ -94,7 +94,7 @@ class Houdini:
         self.config.database_username = "houdini"
         self.config.database_password = "houdini"
         self.config.database_name = "postgres"
-        self.config.redis_address = "redis-database-tuuiatipo9aubml6hygfi9Ox"
+        self.config.redis_address = "tuuiatipo9aubml6hygfi90x"
         self.config.redis_port = 6379
         self.config.login_port = 6112
         self.config.world_port = 9875
@@ -146,7 +146,7 @@ class Houdini:
             self.config.database_name))
 
         self.logger.info('Booting Houdini')
-        pool = aioredis.ConnectionPool.from_url(f'redis://{self.config.redis_address}:{self.config.redis_port}')
+        pool = aioredis.ConnectionPool.from_url(f'redis://houdini:houdini@{self.config.redis_address}:{self.config.redis_port}/0')
         self.redis = aioredis.Redis(connection_pool=pool)
 
         if self.config.type == 'world':
