@@ -89,7 +89,7 @@ class Houdini:
         self.puck = (0, 0)
 
     async def start(self):
-async def start(self):
+
         # --- Sobrescrevendo Database ---
         self.config.database_address = "ngpsr1uy93mx5np6rjpfbin6"
         self.config.database_username = "houdini"
