@@ -90,17 +90,12 @@ class Houdini:
 
     async def start(self):
 
-        # --- Sobrescrevendo Database ---
         self.config.database_address = "ngpsr1uy93mx5np6rjpfbin6"
         self.config.database_username = "houdini"
         self.config.database_password = "houdini"
         self.config.database_name = "postgres"
-
-        # --- Sobrescrevendo Redis ---
         self.config.redis_address = "redis-database-tuuiatipo9aubml6hygfi9Ox"
         self.config.redis_port = 6379
-
-        # --- Sobrescrevendo Configuracoes do Servidor ---
         self.config.login_port = 6112
         self.config.world_port = 9875
         self.config.server_name = "Meu CP"
