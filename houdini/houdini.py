@@ -146,7 +146,7 @@ class Houdini:
             self.config.database_name))
 
         self.logger.info('Booting Houdini')
-        pool = aioredis.ConnectionPool.from_url(f'redis://houdini:houdini@{self.config.redis_address}:{self.config.redis_port}/0')
+        pool = aioredis.ConnectionPool.from_url(f'redis://:houdini@{self.config.redis_address}:{self.config.redis_port}/0')
         self.redis = aioredis.Redis(connection_pool=pool)
 
         if self.config.type == 'world':
